@@ -23,19 +23,26 @@ namespace LoggingKata
         {
             //DO not fail if one record parsing fails, return null
             //TODO Implement
-            
+
             var cells = line.Split(',');
-            
+
             if (cells.Length < 3)
             {
-                Logger.Error("Something went wrong");
+                Logger.Error("Less then 3 cells filled");
                 return null;
             }
 
-            var lon = double.Parse(cells[0]);
-            var lat = double.Parse(cells[1]);
+            //  var lon = double.Parse(cells[0]);
+            // var lat = double.Parse(cells[1]);
 
+            double.TryParse(cells[0], out var lon);
+            double.TryParse(cells[1], out var lat);
 
+            var name = cells[2];
+
+            var TBell = new TacoBell(lon, lat, name);
+
+            return T;
 
         }
 
