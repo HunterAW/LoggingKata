@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using log4net;
 
+
 namespace LoggingKata
 {
     /// <summary>
@@ -22,5 +23,6 @@ namespace LoggingKata
             //DO not fail if one record parsing fails, return null
             return null; //TODO Implement
         }
+       
     }
 }

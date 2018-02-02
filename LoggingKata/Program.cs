@@ -16,6 +16,7 @@ namespace LoggingKata
 
         static void Main(string[] args)
         {
+
             if (args.Length == 0)
             {
                 Console.WriteLine("You must provide a filename as an argument");
@@ -30,7 +31,9 @@ namespace LoggingKata
 
             //TODO:  Find the two TacoBells in Alabama that are the furthurest from one another.
             //HINT:  You'll need two nested forloops
-
+            
         }
+        
     }
+
 }
