@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using log4net;
+using log4net.Core;
 
 
 namespace LoggingKata
@@ -32,17 +33,13 @@ namespace LoggingKata
                 return null;
             }
 
-            //  var lon = double.Parse(cells[0]);
-            // var lat = double.Parse(cells[1]);
-
-            double.TryParse(cells[0], out var lon);
-            double.TryParse(cells[1], out var lat);
-
-            var name = cells[2];
-
-            var TBell = new TacoBell(lon, lat, name);
-
-            return T;
+            Logger.Info("About to initialize object to get name and location of tacobell.");
+            var tacoBell = new TacoBell
+            {
+                Name = cells[2],
+                Location = new Point(double.Parse(cells[0]), double.Parse(cells[1]))
+            };
+            return tacoBell;
 
         }
 
