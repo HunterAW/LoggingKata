@@ -8,9 +8,6 @@ using log4net.Core;
 
 namespace LoggingKata
 {
-    /// <summary>
-    /// Parses a POI file to locate all the TacoBells
-    /// </summary>
     public class TacoParser
     {
         public TacoParser()
@@ -23,8 +20,6 @@ namespace LoggingKata
 
         public ITrackable Parse(string line)
         {
-            //DO not fail if one record parsing fails, return null
-            //TODO Implement
 
             var cells = line.Split(',');
 
@@ -50,29 +45,7 @@ namespace LoggingKata
                 return null;
             }
 
-
         }
-
-
-
-
-
-        // grab the long from your array at index 0
-        // grab the lat from your array at index 1
-        // grab the name from your array at index 2
-
-        // Your going to need to parse your string as a `double`
-        // which is similar to parse a string as an `int`
-
-        // You'll need to create a TacoBell class
-        // that conforms to ITrackable
-
-        // Then, you'll need an instance of the TacoBell class
-        // With the name and point set correctly
-
-        // Then, return the instance of your TacoBell class
-        // Since it conforms to ITrackable
-
 
     }
 }

@@ -11,7 +11,6 @@ namespace LoggingKata
 {
     class Program
     {
-        //Why do you think we use ILog?
         private static readonly ILog Logger =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -44,19 +43,16 @@ namespace LoggingKata
             double distanceApart = 0;
 
 
-
-            //TODO:  Find the two TacoBells in Alabama that are the furthurest from one another.
-
-/*
-            foreach (var firstLlocation in locations)
-            {
-                var firstLocation = new Coordinate
-                {
-                    Long
-                    Longitute = location 
-                }
-            }
-            */
+            /*
+                        foreach (var firstLlocation in locations)
+                        {
+                            var firstLocation = new Coordinate
+                            {
+                                Long
+                                Longitute = location 
+                            }
+                        }
+                        */
         }
 
 
