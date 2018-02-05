@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using log4net;
@@ -34,12 +35,21 @@ namespace LoggingKata
             }
 
             Logger.Info("About to initialize object to get name and location of tacobell.");
-            var tacoBell = new TacoBell
+            try
             {
-                Name = cells[2],
-                Location = new Point(double.Parse(cells[0]), double.Parse(cells[1]))
-            };
-            return tacoBell;
+                var tacoBell = new TacoBell
+                {
+                    Name = cells[2],
+                    Location = new Point(double.Parse(cells[0]), double.Parse(cells[1]))
+                };
+                return tacoBell;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Check to see if cells.Length < 3");
+                return null;
+            }
+
 
         }
 
