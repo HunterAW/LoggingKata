@@ -10,42 +10,37 @@ namespace LoggingKata
 {
     public class TacoParser
     {
-        public TacoParser()
-        {
-
-        }
 
         private static readonly ILog Logger =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ITrackable Parse(string line)
         {
+            if (string.IsNullOrEmpty(line)) { return null; }
 
             var cells = line.Split(',');
 
-            if (cells.Length < 3)
+            if (cells.Length < 2)
             {
-                Logger.Error("Less then 3 cells filled");
                 return null;
             }
-
-            Logger.Info("About to initialize object to get name and location of tacobell.");
+            
             try
             {
-                var tacoBell = new TacoBell
+                var lon = double.Parse(cells[0]);
+                var lat = double.Parse(cells[1]);
+
+                return new TacoBell
                 {
-                    Name = cells[2],
-                    Location = new Point(double.Parse(cells[0]), double.Parse(cells[1]))
+                    Name = cells.Length > 2 ? cells[2] : null,
+                    Location = new Point(lat, lon)
                 };
-                return tacoBell;
             }
             catch (Exception e)
+            
             {
-                Logger.Error("Check to see if cells.Length < 3");
                 return null;
             }
-
         }
-
     }
 }

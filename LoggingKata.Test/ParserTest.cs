@@ -11,11 +11,12 @@ namespace LoggingKata.Test
     [TestFixture]
     public class TacoParserTestFixture
     {
+
         [Test]
         public void ShouldReturnNullForEmptyString()
         {
 
-            var testNull =  "";
+            var testNull = "";
             var parser = new TacoParser();
 
             var result = parser.Parse(testNull);
@@ -35,6 +36,13 @@ namespace LoggingKata.Test
             var resultTaco = tacoParser.Parse(tacoCoordinates);
 
             Assert.IsNotNull(resultTaco);
+
+            const double lat = 34.073638;
+            const double lon = -84.677017;
+
+            Assert.AreEqual(resultTaco.Location.Longitude, lon);
+            Assert.AreEqual(resultTaco.Location.Latitude, lat);
         }
+
     }
 }
