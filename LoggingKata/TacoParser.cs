@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using log4net;
-using log4net.Core;
-
 
 namespace LoggingKata
 {
     public class TacoParser
     {
-
         private static readonly ILog Logger =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -37,7 +31,6 @@ namespace LoggingKata
                 };
             }
             catch (Exception e)
-            
             {
                 return null;
             }

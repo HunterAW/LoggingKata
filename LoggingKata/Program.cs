@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using log4net;
 using System.IO;
 using Geolocation;
@@ -23,7 +20,6 @@ namespace LoggingKata
             if (lines.Length == 0)
             {
                 Console.WriteLine("You must provide a filename as an argument args.Length == 0");
-                Console.ReadLine();
                 Logger.Fatal("Cannot import without filename specified as an argument");
                 return;
             }
@@ -31,14 +27,13 @@ namespace LoggingKata
             if (lines.Length == 1)
             {
                 Console.WriteLine("You must provide a filename as an argument args.Length == 1");
-                Console.ReadLine();
                 Logger.Fatal("Cannot import without filename specified as an argument");
                 return;
             }
 
             Logger.Info("Log initialized");
             var parser = new TacoParser();
-            var locations = lines.Select(line => parser.Parse(line)).ToList(); 
+            var locations = lines.Select(line => parser.Parse(line)).ToList();
 
             ITrackable tBellA = null;
             ITrackable tBellB = null;
@@ -47,7 +42,7 @@ namespace LoggingKata
 
             foreach (var a in locations)
             {
-                var origin = new Coordinate {Latitude = a.Location.Latitude, Longitude = a.Location.Longitude};
+                var origin = new Coordinate { Latitude = a.Location.Latitude, Longitude = a.Location.Longitude };
 
                 foreach (var b in locations)
                 {

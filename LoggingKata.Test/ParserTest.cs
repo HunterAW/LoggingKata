@@ -1,29 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace LoggingKata.Test
 {
     [TestFixture]
     public class TacoParserTestFixture
     {
-
         [Test]
         public void ShouldReturnNullForEmptyString()
         {
-
             var testNull = "";
             var parser = new TacoParser();
-
             var result = parser.Parse(testNull);
 
             Assert.Null(result);
-
-
+            
         }
 
         [Test]
